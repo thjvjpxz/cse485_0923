@@ -20,7 +20,7 @@ INSERT INTO theloai (ten_tloai) VALUES ('Khoa học viễn tưởng');
 INSERT INTO theloai (ten_tloai) VALUES ('Tâm lý');
 INSERT INTO theloai (ten_tloai) VALUES ('Hoạt hình');
 INSERT INTO theloai (ten_tloai) VALUES ('Lịch sử');
-INSERT INTO theloai (ten_tloai) VALUES ('Tội phạm')
+INSERT INTO theloai (ten_tloai) VALUES ('Tội phạm');
 -- ADD DATA TO baiviet
 # Thêm 50 bài viết ngẫu nhiên
 
