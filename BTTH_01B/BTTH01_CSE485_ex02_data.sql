@@ -22,6 +22,7 @@ INSERT INTO theloai (ten_tloai) VALUES
                                     ('Nhạc Trữ Tình'),
                                     ('Nhạc Cách Mạng'),
                                     ('Nhạc Thiếu Nhi');
+insert into theloai (ten_tloai) values ('Nhacvietplus');
 -- ADD DATA TO baiviet
 # Tạo biến i để đếm số bài viết
 SET @i = 1;
