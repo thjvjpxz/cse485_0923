@@ -17,7 +17,7 @@
         ?>
 
             <div class="row my-5">
-                <div class="col-5 rounded mx-auto bg-secondary">
+                <div class="col-6 col-lg-3 rounded mx-auto bg-secondary">
                     <div class="row text-white fw-medium fs-4 ps-4 pt-2">
                         Sign In
                     </div>

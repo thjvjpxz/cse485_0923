@@ -8,8 +8,8 @@
                     </a>
                 </div>
                 <ul class="d-flex gap-2 align-items-center">
-                    <li><a href="#" class="color-black"><strong>TRANG CHỦ</strong></a></li>
-                    <li><a href="#" class="fw-medium color-black">ĐĂNG NHẬP</a></li>
+                    <li><a href="./index.php" class="color-black"><strong>TRANG CHỦ</strong></a></li>
+                    <li><a href="./login.php" class="fw-medium color-black">ĐĂNG NHẬP</a></li>
                 </ul>
             </div>
         </div>
