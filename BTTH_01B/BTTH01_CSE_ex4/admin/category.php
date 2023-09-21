@@ -39,7 +39,7 @@
                                     <th><?= $i+1 ?></th>
                                     <td>Nhạc <?= $i+1 ?></td>
                                     <td>
-                                        <a href="#"><i class="fa-regular fa-pen-to-square"></i></a>
+                                        <a href="./edit_category.php"><i class="fa-regular fa-pen-to-square"></i></a>
                                     </td>
                                     <td>
                                         <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>

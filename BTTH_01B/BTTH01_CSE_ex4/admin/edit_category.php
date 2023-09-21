@@ -17,21 +17,26 @@
     ?>
     <!--        end header-->
 
-    <div class="main-content my-5 row">
+    <div class="row my-5">
         <div class="col-10 mx-auto">
             <div class="row">
-                <div class="col-5 mx-auto d-block">
-                    <h3 class="text-uppercase fw-bold">Thêm mới thể loại</h3>
+                <h3 class="text-uppercase fw-bold text-center">Sửa thông tin thể loại</h3>
+            </div>
+            <div class="row my-4">
+                <div class="input-group col">
+                    <span class="input-group-text">Mã thể loại</span>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="input-group col">
+                    <span class="input-group-text">Tên thể loại</span>
+                    <input type="text" class="form-control">
                 </div>
             </div>
             <div class="row">
-                <label for="" class="col input-group">
-                    <input type="text" placeholder="Tên thể loại" class="form-control">
-                </label>
-            </div>
-            <div class="row pt-4">
                 <div class="d-flex justify-content-end gap-3">
-                    <button class="btn btn-success">Thêm</button>
+                    <button class="btn btn-success">Lưu lại</button>
                     <a href="./category.php" class="btn btn-warning">Quay lại</a>
                 </div>
             </div>
