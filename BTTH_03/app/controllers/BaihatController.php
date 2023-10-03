@@ -47,7 +47,7 @@
 //                echo "$noti";
                 header('Location: .?c=user&a=add&err='.$noti);
             }
-            require_once ('../app/views/baihat/add_song.php');
+            require_once ('../app/views/baihat/add_category.php');
         }
 //
 //        public function edit() : void {
@@ -77,6 +77,6 @@
 ////                    echo "</pre>";
 //                }
 //            }
-//            require_once ('../app/views/users/edit_song.php');
+//            require_once ('../app/views/users/edit_category.php');
 //        }
     }

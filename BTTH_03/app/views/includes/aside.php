@@ -18,7 +18,7 @@
             <li class="nav-item">
                 <a href="?c=theloai" class="color-danger text-black-50 fs-5 d-flex align-items-center gap-3 nav-link">
                     <i class="bi bi-info-circle text-danger"></i>
-                    <span>The loai</span>
+                    <span>Thể loại</span>
                     <i class="bi bi-caret-right-fill ms-auto"></i>
                 </a>
             </li>
