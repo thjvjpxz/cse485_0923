@@ -48,20 +48,18 @@
             $rowCount = $stmt->rowCount();
             return $rowCount > 0;
         }
-        public function editUserById($id, $unameNew) : string {
-            $sql_check = "SELECT * FROM baihat WHERE tenBaiHat = '$unameNew' AND id != $id";
+        public function editSong($id, $songName, $singerName, $idTheLoai) : string {
+            $sql_check = "SELECT * FROM baihat WHERE tenBaiHat = '$songName' AND id != $id";
             $stmt = $this->db->prepare($sql_check);
             $stmt->execute();
             if ($stmt->rowCount() > 0) {
-                return 'SongName already exist';
-            } else {
-                $sql_update = "UPDATE user SET uname = '$unameNew' WHERE id = $id";
-                $stmt = $this->db->prepare($sql_update);
-                if ($stmt->execute()) {
-                    return 'success';
-                }
-                return 'Edit user fail';
+                header('Location: ?a=edit&id=' . $id . '&noti=Bài hát <b>' . $songName . '</b> đã tồn tại');
+                exit();
             }
+            $sql_update = "UPDATE BaiHat SET tenBaiHat= '$songName', caSi = '$singerName', idTheLoai = '$idTheLoai' WHERE id = $id";
+            $stmt = $this->db->prepare($sql_update);
+            $stmt->execute();
+            header('Location: ?s=t&noti=Sửa bài hát thành công');
         }
         public function getAllCategoryName() {
             $sql = "SELECT id, tenTheLoai FROM theloai";
@@ -82,10 +80,4 @@
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
-//        public function getCurrentCategory($id) {
-//            $sql = "SELECT tenTheLoai FROM TheLoai WHERE id = $id";
-//            $stmt = $this->db->prepare($sql);
-//            $stmt->execute();
-//            return $stmt->fetch(PDO::FETCH_ASSOC);
-//        }
     }

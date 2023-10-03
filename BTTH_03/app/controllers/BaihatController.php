@@ -62,6 +62,7 @@
                     header('Location: ?a=edit&id=' . $song['id'] . '&noti=Vui lòng nhập thông tin muốn sửa');
                     exit();
                 }
+                $this->baiHatModel->editSong($_GET['id'], $songNew, $singerNew, $categoryNew);
             }
 //            echo "<pre>";
 //            print_r($song);
