@@ -8,22 +8,25 @@
             $this->db = new Database();
             $this->db = $this->db->getConn();
         }
-        public function AddSong($tenBaiHat, $caSi, $idTheLoai): string
+        public function AddSong($tenBaiHat, $caSi, $idTheLoai)
         {
-//            Truy vấn kiểm tra trùng uname hoặc email
+//            Truy vấn kiểm tra trùng tên bài hát
             $query_check = "SELECT * FROM baihat WHERE tenBaiHat = '$tenBaiHat'";
             $stmt = $this->db->prepare($query_check);
             $stmt->execute();
             if ($stmt->rowCount() > 0) {
-                 return "SongName already exist";
+                header('Location: ?c=baihat&a=add&s=f&noti=Bài hát ' . $tenBaiHat . ' đã tồn tại');
+                exit();
             }
-//            Truy vấn thêm song
-            $query = "INSERT INTO user(tenBaiHat, caSi, idTheLoai) VALUES ('$tenBaiHat', '$caSi', '$idTheLoai')";
-            $stmt = $this->db->prepare($query);
-            if ($stmt->execute()){
-                return "success";
+            try {
+//            Truy vấn thêm bài hát
+                $query = "INSERT INTO BaiHat(tenBaiHat, caSi, idTheLoai) VALUES ('$tenBaiHat', '$caSi', '$idTheLoai')";
+                $stmt = $this->db->prepare($query);
+                $stmt->execute();
+                header('Location: ?c=baihat&s=t&noti=Thêm thành công bài <b>' . $tenBaiHat . '</b>');
+            } catch (PDOException $e) {
+                echo "Lỗi: " . $e->getMessage();
             }
-            return "Add new song failed";
         }
 
         public function getAllBaiHat(): array
@@ -39,7 +42,6 @@
 
         public function deleteUserById($id): bool
         {
-
             $sql = "DELETE FROM baihat WHERE id = $id";
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
@@ -60,5 +62,11 @@
                 }
                 return 'Edit user fail';
             }
+        }
+        public function getAllCategoryName() {
+            $sql = "SELECT id, tenTheLoai FROM theloai";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
     }

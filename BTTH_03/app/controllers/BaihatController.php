@@ -34,20 +34,17 @@
         }
 
         public function add() : void {
+            $category_list = $this->baiHatModel->getAllCategoryName();
+//            echo "<pre>";
+//            print_r($category_list);
+//            echo "</pre>";
             if (isset($_POST['btnAdd'])) {
-                $uname = $_POST['uname'];
-                $pass = $_POST['pass'];
-                $email = $_POST['email'];
-                if ($pass != $_POST['re-pass']) {
-                    header('Location: .?c=user&a=add&err=Password and Re-password must be the same');
-                    return;
-                }
-                $new_User = new User($uname, $pass, $email);
-                $noti = $this->userModel->createUser($new_User);
-//                echo "$noti";
-                header('Location: .?c=user&a=add&err='.$noti);
+                $songName = $_POST['songName'];
+                $singerName = $_POST['singerName'];
+                $categoryId = $_POST['categoryName'];
+                $this->baiHatModel->AddSong($songName, $singerName, $categoryId);
             }
-            require_once ('../app/views/baihat/add_category.php');
+            require_once ('../app/views/baihat/add_song.php');
         }
 //
 //        public function edit() : void {

@@ -1,6 +1,6 @@
 <aside class="col-md-2 pt-3 rounded-end-5 bg-white">
     <div class="row logo">
-        <a href="#" class="">
+        <a href="." class="">
             <img src="./images/logo1.png" class="w-75 mx-auto d-block" alt="logo">
         </a>
     </div>

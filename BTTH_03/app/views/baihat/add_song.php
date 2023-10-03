@@ -30,38 +30,36 @@
             <!--                End header-->
             <article class="row main-content h-100">
                 <form method="POST" action="" class="col-md-4 d-flex flex-column mt-5 pt-5 mx-auto">
-                    <p class="fs-1 fw-bold text-center">Them bai hat</p>
-                    <?php
-                        if (isset($_GET['err'])) {
-                            if ($_GET['err'] === "success") {
-                                ?>
-                                <div class="text-white bg-success mb-2 ps-3 py-1 rounded">Added user successfully</div>
-                                <?php
-                            } else {
-                                ?>
-                                <div class="text-white bg-danger mb-2 ps-3 py-1 rounded"><?= $_GET['err']; ?></div>
-                                <?php
+                    <p class="fs-1 fw-bold text-center">Thêm bài hát</p>
+                    <label for="songName" class="form-label">Tên bài hát</label>
+                    <input type="text" id="songName" name="songName" class="form-control" placeholder="Nhập tên bài hát" required>
+                    <label for="singerName" class="form-label mt-2">Tên ca sĩ</label>
+                    <input type="text" id="singerName" name="singerName" class="form-control" placeholder="Nhập tên ca sĩ" required>
+                    <label for="categoryName" class="form-label mt-2">Thể loại</label>
+                    <select name="categoryName" id="categoryName" class="form-select" required>
+                        <option value="" selected disabled>Chọn thể loại</option>
+                        <?php
+                            foreach ($category_list as $category) {
+
+                        ?>
+                                <option value="<?= $category['id'] ?>"><?= $category['tenTheLoai'] ?></option>
+                        <?php
                             }
-                        }
-                    ?>
-                    <label for="uname" class="input-group mb-2">
-                        <span class="input-group-text"><i class="bi bi-person"></i></span>
-                        <input type="text" id="uname" name="uname" class="form-control" placeholder="Nhap ten bai hat" required>
-                    </label>
-<!--                    <div class="text-white bg-danger mb-2 ps-3 py-1 rounded">Enter</div>-->
-                    <label for="email" class="input-group mb-2">
-                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                        <input type="text" id="email" name="email" class="form-control" placeholder="Nhap ten ca si" required>
+                        ?>
 
-                    </label>
-                   <label for="pass" class="input-group mb-2">
-                        <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                       <input type="number" class="form-control" placeholder="Ma the loai">
-                   </label>
-
-                    <div class="d-flex justify-content-center gap-3">
-                        <button class="btn btn-primary" type="submit" name="btnAdd">Save</button>
-                        <a href="?c=baihat" class="btn btn-secondary">Cancel</a>
+                    </select>
+                    <div class="mt-3">
+                        <?php
+                            if (isset($_GET['noti']) && $_GET['s'] == 'f') {
+                        ?>
+                                <p class="p-2 text-white py-1 rounded bg-danger"><?= $_GET['noti'] ?></p>
+                        <?php
+                            }
+                        ?>
+                    </div>
+                    <div class="d-flex justify-content-center mt-2 gap-3">
+                        <button class="btn btn-primary" type="submit" name="btnAdd">Lưu</button>
+                        <a href="?c=baihat" class="btn btn-secondary">Quay lại</a>
                     </div>
                 </form>
             </article>
