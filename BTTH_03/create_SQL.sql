@@ -1,0 +1,16 @@
+CREATE DATABASE QuanLyBaiHat;
+
+USE QuanLyBaiHat;
+
+CREATE TABLE TheLoai (
+     id INT PRIMARY KEY AUTO_INCREMENT,
+     tenTheLoai VARCHAR(255)
+);
+
+CREATE TABLE BaiHat (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    tenBaiHat VARCHAR(255),
+    caSi VARCHAR(255),
+    idTheLoai INT,
+    FOREIGN KEY (idTheLoai) REFERENCES TheLoai(id)
+);
