@@ -69,4 +69,23 @@
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
+        public function getSongById($id) {
+            $sql = "SELECT baihat.id, tenBaiHat, caSi, idTheLoai, tenTheLoai FROM BaiHat INNER JOIN TheLoai ON BaiHat.idTheLoai = TheLoai.id
+                    WHERE BaiHat.id = $id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+        public function getAllCategoryDivCur($id) {
+            $sql = "SELECT * FROM TheLoai WHERE id != $id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+//        public function getCurrentCategory($id) {
+//            $sql = "SELECT tenTheLoai FROM TheLoai WHERE id = $id";
+//            $stmt = $this->db->prepare($sql);
+//            $stmt->execute();
+//            return $stmt->fetch(PDO::FETCH_ASSOC);
+//        }
     }

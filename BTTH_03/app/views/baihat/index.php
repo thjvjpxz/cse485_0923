@@ -49,7 +49,7 @@
                             <tr>
                                 <th class="col text-center">#</th>
                                 <th class="col-3">Tên bài hát</th>
-                                <th class="col-3">Tác giả</th>
+                                <th class="col-3">Tên ca sĩ</th>
                                 <th class="col">Thể loại</th>
                                 <th class="col text-center">Sửa</th>
                                 <th class="col text-center">Xóa</th>
@@ -64,7 +64,7 @@
                                     <td><?=$item['tenBaiHat']?></td>
                                     <td><?=$item['caSi']?></td>
                                     <td><?=$item['tenTheLoai']?></td>
-                                    <td class="text-center"><a href="#"><i class="bi bi-pencil"></i></a></td>
+                                    <td class="text-center"><a href="?a=edit&id=<?=$item['id']?>"><i class="bi bi-pencil"></i></a></td>
                                     <td class="text-center">
                                         <!--                                            Button delete-->
                                         <a href="#" data-bs-toggle="modal" data-bs-target="#i<?= $item['id']; ?>"><i class="bi bi-trash"></i></a>
