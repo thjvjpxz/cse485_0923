@@ -11,7 +11,7 @@
         public function AddSong($tenBaiHat, $caSi, $idTheLoai): string
         {
 //            Truy vấn kiểm tra trùng uname hoặc email
-            $query_check = "SELECT * FROM baihat WHERE tenBaiHat= '$tenBaiHat'";
+            $query_check = "SELECT * FROM baihat WHERE tenBaiHat = '$tenBaiHat'";
             $stmt = $this->db->prepare($query_check);
             $stmt->execute();
             if ($stmt->rowCount() > 0) {
@@ -29,7 +29,7 @@
         public function getAllBaiHat(): array
         {
 //            Câu truy vấn
-            $query = "SELECT * FROM BaiHat";
+            $query = "SELECT baihat.id, tenBaiHat, caSi, Theloai.tenTheLoai FROM BaiHat INNER JOIN TheLoai ON BaiHat.idTheLoai = TheLoai.id";
 //            Thực thi SQL
             $stmt = $this->db->prepare($query);
             $stmt->execute();

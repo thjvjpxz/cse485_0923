@@ -60,7 +60,7 @@
                                 <tr>
                                     <td class="text-center"><?=$item['id']?></td>
                                     <td><?=$item['tenTheLoai']?></td>
-                                    <td class="text-center"><a href="#"><i class="bi bi-pencil"></i></a></td>
+                                    <td class="text-center"><a href="?c=theloai&a=edit&id=<?= $item['id'] ?>"><i class="bi bi-pencil"></i></a></td>
                                     <td class="text-center">
                                         <!--                                            Button delete-->
                                         <a href="#" data-bs-toggle="modal" data-bs-target="#i<?= $item['id']; ?>"><i class="bi bi-trash"></i></a>

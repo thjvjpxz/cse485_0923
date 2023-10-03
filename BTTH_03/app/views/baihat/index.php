@@ -48,8 +48,9 @@
                         <thead>
                             <tr>
                                 <th class="col text-center">#</th>
-                                <th class="col-4">Tên bài hát</th>
-                                <th class="col-4">Tác giả</th>
+                                <th class="col-3">Tên bài hát</th>
+                                <th class="col-3">Tác giả</th>
+                                <th class="col">Thể loại</th>
                                 <th class="col text-center">Sửa</th>
                                 <th class="col text-center">Xóa</th>
                             </tr>
@@ -62,6 +63,7 @@
                                     <td class="text-center"><?=$item['id']?></td>
                                     <td><?=$item['tenBaiHat']?></td>
                                     <td><?=$item['caSi']?></td>
+                                    <td><?=$item['tenTheLoai']?></td>
                                     <td class="text-center"><a href="#"><i class="bi bi-pencil"></i></a></td>
                                     <td class="text-center">
                                         <!--                                            Button delete-->

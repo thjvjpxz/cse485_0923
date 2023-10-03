@@ -28,43 +28,28 @@
                 require_once ('../app/views/includes/header.php');
             ?>
             <!--                End header-->
-            <?php
-                if (isset($user_old)) {
-
-            ?>
             <article class="row main-content h-100">
                 <div class="mt-5 pt-5">
-                    <p class="fs-1 fw-bold text-center">EDIT USER</p>
+                    <p class="fs-1 fw-bold text-center">Sửa thể loại</p>
                     <form action="" class="col-md-4 mx-auto" method="post">
-                        <?php
-                            if (isset($_GET['err'])) {
-                                if ($_GET['err'] == 'success') {
-                        ?>
-                                    <div class="bg-success text-white mb-2 ps-3 py-1 rounded"><?= "Edited successfully" ?></div>
-                        <?php
-                                } else {
-                                    ?>
-                                    <div class="bg-danger text-white mb-2 ps-3 py-1 rounded"><?= $_GET['err'] ?></div>
-                        <?php
-                                }
-                            }
-                        ?>
-                        <label for="id" class="form-label">ID:</label>
-                        <input type="text" class="form-control fw-bold text-danger bg-opacity-25 bg-secondary" id="id" name="id" readonly value="<?= $user_old['id']; ?>">
-                        <label for="uname" class="form-label">Username:</label>
-                        <input type="text" class="form-control" id="uname" name="uname" value="<?= $user_old['uname'] ?>">
-                        <label for="email" class="form-label mt-2">Email:</label>
-                        <input type="email" class="form-control mb-3" id="email" name="email" value="<?= $user_old['email'] ?>">
+                        <label for="categoryName" class="form-label mt-2">Tên thể loại:</label>
+                        <input type="text" class="form-control mb-3" id="categoryName" name="categoryName" value="<?= $categoryName ?>">
+                        <div class="">
+                                <?php
+                                    if (isset($_GET['noti'])) {
+                                ?>
+                                        <p class="rounded p-2 py-1 bg-danger text-white"><?= $_GET['noti'] ?></p>
+                                <?php
+                                    }
+                                ?>
+                        </div>
                         <div class="d-flex justify-content-center gap-3">
-                            <button class="btn btn-primary" type="submit" name="btnEdit">Save</button>
-                            <a href="?c=user" class="btn btn-secondary">Cancel</a>
+                            <button class="btn btn-primary" type="submit" name="btnEdit">Lưu</button>
+                            <a href="?c=theloai" class="btn btn-secondary">Quay lại</a>
                         </div>
                     </form>
                 </div>
             </article>
-            <?php
-                }
-            ?>
         </section>
         <!--            End main content-->
     </div>

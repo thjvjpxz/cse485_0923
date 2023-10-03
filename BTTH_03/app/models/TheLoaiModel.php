@@ -37,12 +37,24 @@
             $sql_check = "SELECT * FROM TheLoai WHERE id = $id";
             $stmt = $this->db->prepare($sql_check);
             $stmt->execute();
+            $tenTheLoai_sql = $stmt->fetch(PDO::FETCH_ASSOC)['tenTheLoai'];
             if ($stmt->rowCount() == 0) {
                 header("Location: ?c=theloai&s=f&noti=Xóa thất bại, $id không tồn tại");
                 exit();
             }
             try {
-                $tenTheLoai_sql = $stmt->fetch(PDO::FETCH_ASSOC)['tenTheLoai'];
+                // Delete songs
+                $sql_song = "SELECT BaiHat.id FROM BaiHat INNER JOIN TheLoai ON BaiHat.idTheLoai = TheLoai.id 
+                                WHERE TheLoai.id = $id";
+                $stmt = $this->db->prepare($sql_song);
+                $stmt->execute();
+                $song_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($song_list as $song) {
+                    $query_dsong = 'DELETE FROM BaiHat WHERE id ='. $song['id'];
+                    $stmt = $this->db->prepare($query_dsong);
+                    $stmt->execute();
+                }
+                // Delete category
                 $sql = "DELETE FROM TheLoai WHERE id = $id";
                 $stmt = $this->db->prepare($sql);
                 $stmt->execute();
@@ -50,5 +62,24 @@
             } catch (PDOException $e) {
                 echo "Lỗi: " . $e->getMessage();
             }
+        }
+        public function getCategoryName($id) {
+            $sql = "SELECT tenTheLoai FROM TheLoai WHERE id = $id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC)['tenTheLoai'];
+        }
+        public function editCategoryName($id, $newName, $oldName) {
+            $sql_check = "SELECT * FROM TheLoai WHERE tenTheLoai = '$newName' AND id != $id";
+            $stmt = $this->db->prepare($sql_check);
+            $stmt->execute();
+            if ($stmt->rowCount() > 0) {
+                header('Location: ?c=theloai&a=edit&id='.$id.'&noti=Thể loại đã tồn tại, vui lòng nhập thể loại khác');
+                exit();
+            }
+            $sql = "UPDATE TheLoai SET tenTheLoai = '$newName' WHERE id = $id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            header('Location: ?c=theloai&s=t&noti=Sửa thành công <b>' . $oldName . '</b> thành <b>' . $newName . '</b>');
         }
     }

@@ -36,4 +36,23 @@
                 $this->theLoaiModel->removeCategoryById($id);
             }
         }
+        public function edit() : void {
+            if (isset($_GET['id'])) {
+                $id = $_GET['id'];
+                $categoryName = $this->theLoaiModel->getCategoryName($id);
+                if (isset($_POST['btnEdit'])) {
+                    $categoryNameNew = $_POST['categoryName'];
+                    if ($categoryNameNew == $categoryName) {
+                        header('Location: ?c=theloai&a=edit&id=' . $id . '&noti=Vui lòng nhập tên muốn thay đổi');
+//                        echo "hihi";
+                    }
+                    else {
+                        $this->theLoaiModel->editCategoryName($id, $categoryNameNew, $categoryName);
+                    }
+//                    echo "Old Name: " . $categoryName . "</br>";
+//                    echo "New Name: " . $categoryNameNew . "</br>";
+                }
+            }
+            require_once ('../app/views/theloai/edit_category.php');
+        }
     }
