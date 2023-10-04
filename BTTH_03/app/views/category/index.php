@@ -29,7 +29,7 @@
             <article class="row main-content h-100">
                 <div class="col rounded-2 p-3 ps-4 mt-5">
                     <div class="mb-3 d-flex">
-                        <a href="?c=theloai&a=add" class="btn btn-primary ms-auto">Thêm thể loại</a>
+                        <a href="?c=category&a=add" class="btn btn-primary ms-auto">Thêm thể loại</a>
                     </div>
                     <div class="mb-3">
                         <?php
@@ -60,7 +60,7 @@
                                 <tr>
                                     <td class="text-center"><?=$item['id']?></td>
                                     <td><?=$item['tenTheLoai']?></td>
-                                    <td class="text-center"><a href="?c=theloai&a=edit&id=<?= $item['id'] ?>"><i class="bi bi-pencil"></i></a></td>
+                                    <td class="text-center"><a href="?c=category&a=edit&id=<?= $item['id'] ?>"><i class="bi bi-pencil"></i></a></td>
                                     <td class="text-center">
                                         <!--                                            Button delete-->
                                         <a href="#" data-bs-toggle="modal" data-bs-target="#i<?= $item['id']; ?>"><i class="bi bi-trash"></i></a>
@@ -77,7 +77,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button class="btn btn-secondary" data-bs-dismiss="modal">Quay lại</button>
-                                                        <a href="?c=theloai&a=delete&id=<?= $item['id']; ?>" class="btn btn-primary">Vâng</a>
+                                                        <a href="?c=category&a=delete&id=<?= $item['id']; ?>" class="btn btn-primary">Vâng</a>
 
                                                     </div>
                                                 </div>

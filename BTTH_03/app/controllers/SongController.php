@@ -1,40 +1,35 @@
 <?php
-    require_once ('../app/models/BaiHatModel.php');
+    require_once ('../app/models/SongModel.php');
 //    require_once ('../app/models/User.php');
-    class BaihatController
+    class SongController
     {
-        private BaiHatModel $baiHatModel;
+        private SongModel $songModel;
         public function __construct()
         {
-            $this->baiHatModel = new BaiHatModel();
+            $this->songModel = new SongModel();
         }
 
         public function index() : void {
-
-            $baiHat = $this->baiHatModel->getAllBaiHat();
+//            echo "HIHI";
+            $baiHat = $this->songModel->getAllSong();
 //            echo "<pre>";
 //            print_r($baiHat);
 //            echo "<pre>";
-            require_once ('../app/views/baihat/index.php');
+            require_once ('../app/views/song/index.php');
         }
 
         public function delete() : void {
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
-
-                $res = $this->baiHatModel->deleteUserById($id);
-                $noti = "Song has been successfully deleted";
-                if (!$res) {
-                    $noti = "Song not exist or has been deleted";
-                }
-                header("Location: .?c=baihat&i=$id&noti=$noti");
+//
+                $this->songModel->deleteSongById($id);
             }
-            require_once ('../app/views/index.php');
+            require_once ('../app/views/song/index.php');
 
         }
 
         public function add() : void {
-            $category_list = $this->baiHatModel->getAllCategoryName();
+            $category_list = $this->songModel->getAllCategoryName();
 //            echo "<pre>";
 //            print_r($category_list);
 //            echo "</pre>";
@@ -42,18 +37,18 @@
                 $songName = $_POST['songName'];
                 $singerName = $_POST['singerName'];
                 $categoryId = $_POST['categoryName'];
-                $this->baiHatModel->AddSong($songName, $singerName, $categoryId);
+                $this->songModel->AddSong($songName, $singerName, $categoryId);
             }
-            require_once ('../app/views/baihat/add_song.php');
+            require_once ('../app/views/song/add_song.php');
         }
 //
         public function edit() : void {
-            $song = $this->baiHatModel->getSongById($_GET['id']);
+            $song = $this->songModel->getSongById($_GET['id']);
             $category = [
                 'id' => $song['idTheLoai'],
                 'tenTheLoai' => $song['tenTheLoai']
             ];
-            $category_list = $this->baiHatModel->getAllCategoryDivCur($category['id']);
+            $category_list = $this->songModel->getAllCategoryDivCur($category['id']);
             if (isset($_POST['btnEdit'])) {
                 $songNew = $_POST['songName'];
                 $singerNew = $_POST['singerName'];
@@ -62,11 +57,11 @@
                     header('Location: ?a=edit&id=' . $song['id'] . '&noti=Vui lòng nhập thông tin muốn sửa');
                     exit();
                 }
-                $this->baiHatModel->editSong($_GET['id'], $songNew, $singerNew, $categoryNew);
+                $this->songModel->editSong($_GET['id'], $songNew, $singerNew, $categoryNew);
             }
 //            echo "<pre>";
 //            print_r($song);
 //            echo "</pre>";
-            require_once ('../app/views/baihat/edit_song.php');
+            require_once ('../app/views/song/edit_song.php');
         }
     }

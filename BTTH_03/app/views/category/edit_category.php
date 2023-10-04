@@ -45,7 +45,7 @@
                         </div>
                         <div class="d-flex justify-content-center gap-3">
                             <button class="btn btn-primary" type="submit" name="btnEdit">Lưu</button>
-                            <a href="?c=theloai" class="btn btn-secondary">Quay lại</a>
+                            <a href="?c=category" class="btn btn-secondary">Quay lại</a>
                         </div>
                     </form>
                 </div>

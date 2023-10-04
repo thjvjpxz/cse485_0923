@@ -31,7 +31,7 @@
             <article class="row main-content h-100">
                 <div class="col rounded-2 p-3 ps-4 mt-5">
                     <div class="mb-3 d-flex">
-                        <a href="?c=baihat&a=add" class="btn btn-primary ms-auto">Thêm bài hát</a>
+                        <a href="?c=song&a=add" class="btn btn-primary ms-auto">Thêm bài hát</a>
                     </div>
                     <?php
                         if (isset($_GET['noti'])) {
@@ -73,15 +73,15 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="confirmDelete">Confirm delete</h5>
+                                                        <h5 class="modal-title" id="confirmDelete">Xác nhận xóa</h5>
                                                         <button data-bs-dismiss="modal" aria-label="Close" class="btn-close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <h5>ARE YOU SURE ?</h5>
+                                                        <h5>Bạn chắc chắn muốn xóa?</h5>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                        <a href="?a=delete&id=<?= $item['id']; ?>" class="btn btn-primary">OK</a>
+                                                        <button class="btn btn-secondary" data-bs-dismiss="modal">Quay lại</button>
+                                                        <a href="?a=delete&id=<?= $item['id']; ?>" class="btn btn-primary">Vâng</a>
 
                                                     </div>
                                                 </div>

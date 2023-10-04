@@ -5,7 +5,7 @@
      */
     // require_once '../app/controllers/HomeController.php'; // Yêu cầu file HomeController.php để sử dụng class HomeController();
 
-    $controller = $_GET['c'] ?? 'baihat'; // Nếu tồn tại value của biến _GET['c'] thì gán cho $controller value của biến _GET
+    $controller = $_GET['c'] ?? 'song'; // Nếu tồn tại value của biến _GET['c'] thì gán cho $controller value của biến _GET
     // Nếu không tồn tại thì gán 'home'
     $action = $_GET['a'] ?? 'index'; // Giống trên, gán $action = value của _GET['a'] còn không thì gán 'index'
 //    $curPage = $_GET['p'] ?? '1';

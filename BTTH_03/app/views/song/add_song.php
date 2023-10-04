@@ -59,7 +59,7 @@
                     </div>
                     <div class="d-flex justify-content-center mt-2 gap-3">
                         <button class="btn btn-primary" type="submit" name="btnAdd">Lưu</button>
-                        <a href="?c=baihat" class="btn btn-secondary">Quay lại</a>
+                        <a href="?c=song" class="btn btn-secondary">Quay lại</a>
                     </div>
                 </form>
             </article>
