@@ -15,7 +15,9 @@
         <div class="row h-100 bg-body-tertiary pt-2">
 <!--            Table student data-->
             <div class="col-md-8 mt-5 mx-auto d-flex flex-column">
-                <button class="btn btn-primary ms-auto">Add class</button>
+                <form action="?a=add" method="post" class="ms-auto">
+                    <button class="btn btn-primary" name="callAdd" type="submit">Add class</button>
+                </form>
                 <h5 class="text-center mb-3 fs-3">Class list</h5>
                 <table class="table-bordered table">
                     <thead>

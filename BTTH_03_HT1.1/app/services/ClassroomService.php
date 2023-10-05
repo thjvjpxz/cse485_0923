@@ -66,4 +66,25 @@
             $stmt->execute();
             header('Location: ?s=t&noti=Update class name successfully');
         }
+        public function add($className) {
+            // Check class name existance
+            $sql_check = 'SELECT * FROM Lop WHERE tenLop = :className';
+            $stmt = $this->conn->prepare($sql_check);
+            $stmt->bindParam(':className', $className);
+            $stmt->execute();
+            if ($stmt->rowCount() > 0) {
+                header('Location: ?a=add&noti=Class <b>' . $className . '</b> exists');
+                exit();
+            }
+            try {
+                $sql_add = "INSERT INTO Lop(tenLop) VALUES (:className)";
+                $stmt_add = $this->conn->prepare($sql_add);
+                $stmt_add->bindParam(':className', $className);
+                $stmt_add->execute();
+                header('Location: ?s=t&noti=Added <b>' . $className . '</b> successfully');
+            } catch (PDOException $e) {
+                header ('Lcation: ?a=add&noti=' . $e->getMessage());
+            }
+//            echo "<b class='text-white'>" . $className . "</b>";
+        }
     }

@@ -11,6 +11,10 @@
 
         public function index() {
             $classList = $this->classroomService->getAll();
+            // if click button add
+            if ($_POST['callAdd']) {
+                header('Location: ?a=add');
+            }
             require_once (APP_ROOT . '/app/views/classrooms/index.php');
         }
 
@@ -31,5 +35,14 @@
                 $this->classroomService->edit($_GET['id'], $classNameNew);
             }
             require_once (APP_ROOT . '/app/views/classrooms/editClassroom.php');
+        }
+
+        public function add() {
+            if (isset($_POST['btnAdd'])) {
+                $nClassName = $_POST['className'];
+                $this->classroomService->add($nClassName);
+//                echo "<b class='text-white'>" . $nClassName . "</b>";
+            }
+            require_once (APP_ROOT . '/app/views/classrooms/addClassroom.php');
         }
     }
